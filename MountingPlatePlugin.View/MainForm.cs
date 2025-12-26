@@ -14,7 +14,6 @@ namespace MountingPlatePlugin.View
             InitializeComponent();
             buttonBuild.Enabled = false;
         }
-
         
         private void TextBoxLength_TextChanged(object sender, EventArgs e)
         {
@@ -51,7 +50,6 @@ namespace MountingPlatePlugin.View
             ValidateHolesWidth();
         }
         
-        
         private void ValidateLength()
         {
             bool isValid = ValidateFloatInput(textBoxLength, "Length");
@@ -81,8 +79,6 @@ namespace MountingPlatePlugin.View
             bool isValid = ValidateIntInput(textBoxHolesWidth, "HolesWidth");
             UpdateBuildButton();
         }
-        
-
         
         private bool ValidateFloatInput(TextBox textBox, string parameterName)
         {
@@ -137,7 +133,6 @@ namespace MountingPlatePlugin.View
         
         private void UpdateBuildButton()
         {
-     
             bool allValid = 
                 ValidateFloatInput(textBoxLength, "Length") &&
                 ValidateFloatInput(textBoxWidth, "Width") &&
@@ -147,12 +142,11 @@ namespace MountingPlatePlugin.View
             
             buttonBuild.Enabled = allValid;
             
-    
+            // Дополнительная проверка зависимостей
             if (allValid)
             {
                 try
                 {
-          
                     float diameter = _parameters.HoleDiameter;
                     float offset = _parameters.EdgeOffset;
                     
@@ -167,40 +161,38 @@ namespace MountingPlatePlugin.View
                 }
             }
         }
-
-
-
+        
         private void ButtonBuild_Click(object sender, EventArgs e)
         {
             try
             {
-                // Устанавливаем параметры
+                // Устанавливаем параметры из формы
                 _parameters.Length = float.Parse(textBoxLength.Text);
                 _parameters.Width = float.Parse(textBoxWidth.Text);
                 _parameters.Thickness = float.Parse(textBoxThickness.Text);
                 _parameters.HolesLength = int.Parse(textBoxHolesLength.Text);
                 _parameters.HolesWidth = int.Parse(textBoxHolesWidth.Text);
-
+                
                 // Проверяем валидацию
                 if (!_parameters.ValidateAll())
                 {
-                    MessageBox.Show("Ошибка: параметры не прошли валидацию!",
-                                  "Ошибка",
-                                  MessageBoxButtons.OK,
+                    MessageBox.Show("Ошибка: параметры не прошли валидацию!", 
+                                  "Ошибка", 
+                                  MessageBoxButtons.OK, 
                                   MessageBoxIcon.Error);
                     return;
                 }
-
+                
                 // Сохраняем параметры в Builder
-                MountingPlateBuilder.CurrentParameters = _parameters;
-
+                MountingPlatePlugin.Builder.MountingPlateBuilder.CurrentParameters = _parameters;
+                
                 // Закрываем форму с DialogResult.OK
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка: {ex.Message}",
+                MessageBox.Show($"Ошибка: {ex.Message}", 
                               "Ошибка",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Error);
@@ -208,7 +200,3 @@ namespace MountingPlatePlugin.View
         }
     }
 }
-
-
-
-

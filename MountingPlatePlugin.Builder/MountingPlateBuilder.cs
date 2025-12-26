@@ -37,7 +37,7 @@ namespace MountingPlatePlugin.Builder
             BuildPlate();
         }
         
-        private static void BuildPlate()
+        public static void BuildPlate()
         {
             if (CurrentParameters == null) return;
             
@@ -216,3 +216,6 @@ namespace MountingPlatePlugin.Builder
         }
     }
 }
+
+
+

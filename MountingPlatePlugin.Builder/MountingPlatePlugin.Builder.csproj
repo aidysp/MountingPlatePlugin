@@ -12,8 +12,8 @@
   </ItemGroup>
   
   <ItemGroup>
-    <!-- ТОЛЬКО Model проект -->
+
     <ProjectReference Include="..\MountingPlatePlugin.Model\MountingPlatePlugin.Model.csproj" />
-    <!-- УДАЛИТЕ ссылку на View проект -->
+
   </ItemGroup>
 </Project>

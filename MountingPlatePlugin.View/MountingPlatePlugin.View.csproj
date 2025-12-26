@@ -9,13 +9,11 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <!-- Model и Builder проекты -->
     <ProjectReference Include="..\MountingPlatePlugin.Model\MountingPlatePlugin.Model.csproj" />
     <ProjectReference Include="..\MountingPlatePlugin.Builder\MountingPlatePlugin.Builder.csproj" />
   </ItemGroup>
   
   <ItemGroup>
-    <!-- DLL NanoCAD нужны только если View сам вызывает API -->
     <Reference Include="..\lib\hostmgd.dll" />
     <Reference Include="..\lib\hostdbmgd.dll" />
   </ItemGroup>
