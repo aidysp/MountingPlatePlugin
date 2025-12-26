@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MountingPlatePlugin.Model",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MountingPlatePlugin.View", "MountingPlatePlugin.View\MountingPlatePlugin.View.csproj", "{49BF7CAD-1778-498B-B733-450A9EE8C538}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MountingPlatePlugin.Builder", "MountingPlatePlugin.Builder\MountingPlatePlugin.Builder.csproj", "{BE51DECF-B087-4745-BB88-13164E844BBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{49BF7CAD-1778-498B-B733-450A9EE8C538}.Release|x64.Build.0 = Release|Any CPU
 		{49BF7CAD-1778-498B-B733-450A9EE8C538}.Release|x86.ActiveCfg = Release|Any CPU
 		{49BF7CAD-1778-498B-B733-450A9EE8C538}.Release|x86.Build.0 = Release|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Debug|x64.Build.0 = Debug|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Debug|x86.Build.0 = Debug|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Release|x64.ActiveCfg = Release|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Release|x64.Build.0 = Release|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Release|x86.ActiveCfg = Release|Any CPU
+		{BE51DECF-B087-4745-BB88-13164E844BBA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="..\lib\hostmgd.dll" />
+    <Reference Include="..\lib\hostdbmgd.dll" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- ТОЛЬКО Model проект -->
+    <ProjectReference Include="..\MountingPlatePlugin.Model\MountingPlatePlugin.Model.csproj" />
+    <!-- УДАЛИТЕ ссылку на View проект -->
+  </ItemGroup>
+</Project>

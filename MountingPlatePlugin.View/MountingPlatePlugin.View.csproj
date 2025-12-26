@@ -1,13 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <OutputType>WinExe</OutputType> <!-- Library -->
+    <OutputType>Library</OutputType>
     <UseWindowsForms>true</UseWindowsForms>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   
   <ItemGroup>
+    <!-- Model и Builder проекты -->
     <ProjectReference Include="..\MountingPlatePlugin.Model\MountingPlatePlugin.Model.csproj" />
+    <ProjectReference Include="..\MountingPlatePlugin.Builder\MountingPlatePlugin.Builder.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- DLL NanoCAD нужны только если View сам вызывает API -->
+    <Reference Include="..\lib\hostmgd.dll" />
+    <Reference Include="..\lib\hostdbmgd.dll" />
   </ItemGroup>
 </Project>

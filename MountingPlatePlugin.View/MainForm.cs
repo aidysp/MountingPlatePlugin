@@ -2,7 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using MountingPlatePlugin.Model;
-
+using MountingPlatePlugin.Builder;
 namespace MountingPlatePlugin.View
 {
     public partial class MainForm : Form
@@ -167,46 +167,40 @@ namespace MountingPlatePlugin.View
                 }
             }
         }
-        
-    
-        
+
+
+
         private void ButtonBuild_Click(object sender, EventArgs e)
         {
             try
             {
-       
+                // Устанавливаем параметры
                 _parameters.Length = float.Parse(textBoxLength.Text);
                 _parameters.Width = float.Parse(textBoxWidth.Text);
                 _parameters.Thickness = float.Parse(textBoxThickness.Text);
                 _parameters.HolesLength = int.Parse(textBoxHolesLength.Text);
                 _parameters.HolesWidth = int.Parse(textBoxHolesWidth.Text);
-                
-         
+
+                // Проверяем валидацию
                 if (!_parameters.ValidateAll())
                 {
-                    MessageBox.Show("Ошибка: параметры не прошли валидацию!", 
-                                  "Ошибка", 
-                                  MessageBoxButtons.OK, 
+                    MessageBox.Show("Ошибка: параметры не прошли валидацию!",
+                                  "Ошибка",
+                                  MessageBoxButtons.OK,
                                   MessageBoxIcon.Error);
                     return;
                 }
-                
-          
-                MessageBox.Show(
-                    $"Параметры успешно установлены!\n\n" +
-                    $"Длина: {_parameters.Length} мм\n" +
-                    $"Ширина: {_parameters.Width} мм\n" +
-                    $"Толщина: {_parameters.Thickness} мм\n" +
-                    $"Отверстия: {_parameters.HolesLength}×{_parameters.HolesWidth} = {_parameters.TotalHoles} шт.\n" +
-                    $"Диаметр отверстий: {_parameters.HoleDiameter:F1} мм\n" +
-                    $"Отступ от края: {_parameters.EdgeOffset:F1} мм",
-                    "Успех",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+
+                // Сохраняем параметры в Builder
+                MountingPlateBuilder.CurrentParameters = _parameters;
+
+                // Закрываем форму с DialogResult.OK
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка: {ex.Message}", 
+                MessageBox.Show($"Ошибка: {ex.Message}",
                               "Ошибка",
                               MessageBoxButtons.OK,
                               MessageBoxIcon.Error);
@@ -214,3 +208,7 @@ namespace MountingPlatePlugin.View
         }
     }
 }
+
+
+
+
