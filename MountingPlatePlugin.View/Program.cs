@@ -10,7 +10,7 @@ namespace MountingPlatePlugin.View
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());  // ← ЗАМЕНИЛИ Form1 на MainForm
+            Application.Run(new MainForm());
         }
     }
 }
